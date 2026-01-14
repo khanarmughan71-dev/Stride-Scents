@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { products } from "../data/products";
 
-function ProductDetail() {
+function productdetail() {
   const { id } = useParams();
 
   const product = products.find((item) => item.id === id);
@@ -15,44 +15,72 @@ function ProductDetail() {
   }
 
   return (
-    <section className="bg-black text-white py-24">
-      <div className="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-14">
-
-        {/* Product Image */}
-        <div className="rounded-2xl overflow-hidden bg-neutral-900">
+    <section className="bg-black text-white py-28">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-16 items-center">
+        {/* LEFT: Product Image */}
+        <div className="relative group rounded-3xl overflow-hidden bg-neutral-900">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-105 transition-transform duration-700 ease-out group-hover:scale-110"
           />
+
+          {/* Soft gradient overlay */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
         </div>
 
-        {/* Product Info */}
-        <div className="flex flex-col justify-center">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-wide">
+        {/* RIGHT: Product Details */}
+        <div className="flex flex-col">
+          {/* Product Name */}
+          <h1 className="text-4xl md:text-5xl font-bold tracking-wide leading-tight">
             {product.name}
           </h1>
 
-          <p className="mt-4 text-white/70">
+          {/* Divider */}
+          <div className="w-20 h-0.5 bg-white/20 mt-6" />
+
+          {/* Description */}
+          <p className="mt-6 text-white/70 leading-relaxed max-w-md">
             {product.description}
           </p>
 
-          <p className="mt-6 text-xl font-semibold">
+          {/* Price */}
+          <p className="mt-8 text-2xl font-semibold tracking-wide">
             Rs. {product.price}
           </p>
 
           {/* Actions */}
-          <div className="mt-10 flex gap-4">
-            <button className="px-8 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition">
+          <div className="mt-10 flex flex-wrap gap-4">
+            <button
+              className="
+              px-10 py-3 rounded-full
+              bg-white text-black font-medium
+              transition-all duration-300
+              hover:bg-gray-200 hover:scale-105
+            "
+            >
               Add to Cart
             </button>
 
             <Link
               to="/checkout"
-              className="px-8 py-3 border border-white/30 rounded-full hover:bg-white hover:text-black transition"
+              className="
+              px-10 py-3 rounded-full
+              border border-white/30
+              text-white
+              transition-all duration-300
+              hover:bg-white hover:text-black hover:scale-105
+            "
             >
               Buy Now
             </Link>
+          </div>
+
+          {/* Extra Info (Premium Touch) */}
+          <div className="mt-10 text-sm text-white/50 space-y-2">
+            <p>• Long lasting fragrance</p>
+            <p>• Perfect for daily & evening wear</p>
+            <p>• Premium inspired scent</p>
           </div>
         </div>
       </div>
@@ -60,4 +88,4 @@ function ProductDetail() {
   );
 }
 
-export default ProductDetail;
+export default productdetail;

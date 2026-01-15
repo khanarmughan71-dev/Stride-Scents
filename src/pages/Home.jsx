@@ -18,14 +18,27 @@ function Home() {
         <div className="absolute inset-0 bg-black/70"></div>
 
         <Reveal direction="bottom">
-          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-            {/* Left */}
+          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 items-center gap-14">
+            {/* LEFT: Text */}
             <div className="text-center md:text-left">
               <h1 className="text-4xl md:text-6xl font-bold tracking-wide leading-tight">
                 A Signature <br className="hidden md:block" /> Of Pure Elegance
               </h1>
 
-              <p className="mt-6 max-w-xl mx-auto md:mx-0 text-base md:text-lg text-white/80">
+              {/* MOBILE BOTTLE (INLINE, CENTERED) */}
+              <div className="mt-10 flex justify-center md:hidden">
+                <img
+                  src="/stride-hero.png"
+                  alt="Perfume Bottle"
+                  className="
+              w-64
+              drop-shadow-2xl
+              water-float
+            "
+                />
+              </div>
+
+              <p className="mt-8 max-w-xl mx-auto md:mx-0 text-base md:text-lg text-white/80">
                 Discover luxury fragrances crafted to leave a lasting
                 impression. Designed for those who define their presence.
               </p>
@@ -37,12 +50,12 @@ function Home() {
               </div>
             </div>
 
-            {/* Right: Floating Bottle */}
+            {/* RIGHT: Desktop Bottle */}
             <div className="hidden md:flex justify-center">
               <img
                 src="/stride-hero.png"
                 alt="Perfume Bottle"
-                className="w-100 md:w-90 drop-shadow-2xl water-float"
+                className="w-[420px] drop-shadow-2xl water-float"
               />
             </div>
           </div>

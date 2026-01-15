@@ -44,7 +44,7 @@ function Footer() {
           </div>
 
           {/* CENTER: Navigation */}
-          <div className="flex justify-center align-items-center">
+          <div className="flex justify-center align-center">
             <div className="grid grid-cols-2 gap-x-12 gap-y-2 text-md text-center md:text-left">
               {["Home", "Shop", "About", "Contact", "Privacy", "Terms"].map(
                 (item) => (

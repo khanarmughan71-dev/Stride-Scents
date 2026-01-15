@@ -92,6 +92,7 @@ function Home() {
                 </Link>
               ))}
             </div>
+
             <div className="mt-14 flex justify-center">
               <Link
                 to="/products"

@@ -6,11 +6,14 @@ import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
-import Products from "./pages/products";
+import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import FloatingCart from "./components/FloatingCart";
+import CartDrawer from "./components/CartDrawer";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [cartOpen, setCartOpen] = useState(false); // ✅ REQUIRED
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -42,6 +45,13 @@ function App() {
         </Routes>
 
         <Footer />
+
+        {/* FLOATING CART + DRAWER */}
+        <FloatingCart onClick={() => setCartOpen(true)} />
+        <CartDrawer
+          isOpen={cartOpen}
+          onClose={() => setCartOpen(false)}
+        />
       </div>
     </>
   );

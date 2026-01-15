@@ -53,7 +53,7 @@ function Navbar() {
           {["Home", "Shop", "About", "Contact"].map((item) => (
             <Link
               key={item}
-              to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+              to={item === "Home" ? "/" : item === "Shop" ? "/products" : `/${item.toLowerCase()}`}
               className="px-5 py-2 rounded-full text-white/90 transition-all duration-300
                          hover:text-white hover:bg-white/10 hover:backdrop-blur-md"
             >

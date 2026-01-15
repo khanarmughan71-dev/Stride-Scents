@@ -25,7 +25,7 @@ function Products() {
               className="group relative h-90 md:h-105 rounded-2xl overflow-hidden bg-neutral-900"
             >
               <img
-                src={product.image}
+                src={product.image2}
                 alt={product.name}
                 className="absolute inset-0 w-full h-full object-cover scale-105 transition-transform duration-700 ease-out group-hover:scale-110"
               />

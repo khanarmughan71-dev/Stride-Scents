@@ -8,10 +8,10 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-20 items-start">
           {/* LEFT: Brand */}
           <div className="text-center md:text-left">
-            <div className="mx-auto md:mx-0 w-16 h-16 rounded-full bg-black text-black text-lg flex items-center justify-center font-semibold tracking-widest mb-5">
+            <div className="mx-auto md:mx-0 w-20 h-20 rounded-full bg-black text-black text-lg flex items-center justify-center font-semibold tracking-widest mb-5">
               <div
                 className="
-      w-15 h-15 rounded-full
+      w-20 h-20 rounded-full
       bg-black/90
       ring-2 ring-white/40
       overflow-hidden
@@ -25,7 +25,7 @@ function Footer() {
                   src="/stride-logo.png"
                   alt="Stride Scents Logo"
                   className="
-        w-16 h-16 object-contain
+        w-20 h-20 object-contain
         transition-transform duration-300 ease-out
         group-hover:scale-105
       "

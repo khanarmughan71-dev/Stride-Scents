@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
@@ -7,6 +7,7 @@ function ProductDetail() {
   const { id } = useParams();
   const { addToCart } = useCart();
   const [added, setAdded] = useState(false);
+  const navigate = useNavigate();
 
   const product = products.find((item) => item.id === id);
 
@@ -21,7 +22,7 @@ function ProductDetail() {
   const discountPercent = Math.round(
     ((product.originalPrice - product.discountedPrice) /
       product.originalPrice) *
-      100
+      100,
   );
 
   const handleAddToCart = () => {
@@ -33,12 +34,20 @@ function ProductDetail() {
     setTimeout(() => setAdded(false), 2000);
   };
 
+  const handleBuyNow = () => {
+    addToCart({
+      ...product,
+      price: product.discountedPrice,
+    });
+
+    navigate("/checkout");
+  };
+
   return (
     <>
       {/* PRODUCT HERO */}
       <section className="bg-black text-white pt-28 pb-20">
         <div className="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-16 items-center">
-          
           {/* IMAGE */}
           <div className="relative flex items-center justify-center">
             <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full bg-white/30 blur-3xl" />
@@ -97,22 +106,20 @@ function ProductDetail() {
                 Add to Cart
               </button>
 
-              <Link
-                to="/checkout"
+              <button
+                onClick={handleBuyNow}
                 className="
-                  px-10 py-3 rounded-full
-                  border border-white/30
-                  hover:bg-white hover:text-black
-                  transition-all duration-300
-                "
+    px-10 py-3 rounded-full
+    border border-white/30
+    hover:bg-white hover:text-black
+    transition-all duration-300
+  "
               >
                 Buy Now
-              </Link>
+              </button>
 
               {added && (
-                <span className="text-sm text-green-400">
-                  Added to cart ✓
-                </span>
+                <span className="text-sm text-green-400">Added to cart ✓</span>
               )}
             </div>
 

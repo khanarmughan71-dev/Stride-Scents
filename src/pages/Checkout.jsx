@@ -20,18 +20,17 @@ function Checkout() {
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * (item.quantity || 1),
-    0
+    0,
   );
 
-  const generateOrderNumber = () =>
-    `SS-${Date.now().toString().slice(-6)}`;
+  const generateOrderNumber = () => `SS-${Date.now().toString().slice(-6)}`;
 
   const orderItemsText = cartItems
     .map(
       (item) =>
         `${item.name} × ${item.quantity || 1} — Rs. ${
           item.price * (item.quantity || 1)
-        }`
+        }`,
     )
     .join("\n");
 
@@ -79,7 +78,7 @@ function Checkout() {
         "service_29n2tde",
         "order_admin",
         templateParams,
-        "1CvgFVPPB3owY-zG2"
+        "1CvgFVPPB3owY-zG2",
       );
 
       setOrderSummary({
@@ -129,10 +128,18 @@ function Checkout() {
 
           {/* Customer Info */}
           <div className="text-sm text-white/70 space-y-1 mb-6">
-            <p><strong>Name:</strong> {orderSummary.customer.name}</p>
-            <p><strong>Email:</strong> {orderSummary.customer.email}</p>
-            <p><strong>Phone:</strong> {orderSummary.customer.phone}</p>
-            <p><strong>Address:</strong> {orderSummary.customer.address}</p>
+            <p>
+              <strong>Name:</strong> {orderSummary.customer.name}
+            </p>
+            <p>
+              <strong>Email:</strong> {orderSummary.customer.email}
+            </p>
+            <p>
+              <strong>Phone:</strong> {orderSummary.customer.phone}
+            </p>
+            <p>
+              <strong>Address:</strong> {orderSummary.customer.address}
+            </p>
           </div>
 
           <div className="border-t border-white/10 my-4" />
@@ -144,9 +151,7 @@ function Checkout() {
                 <span>
                   {item.name} × {item.quantity || 1}
                 </span>
-                <span>
-                  Rs. {item.price * (item.quantity || 1)}
-                </span>
+                <span>Rs. {item.price * (item.quantity || 1)}</span>
               </div>
             ))}
           </div>
@@ -178,16 +183,12 @@ function Checkout() {
   return (
     <section className="bg-black text-white min-h-screen pt-28 pb-20">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
-        <h1 className="text-3xl md:text-4xl font-bold mb-12">
-          Checkout
-        </h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-12">Checkout</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
           {/* LEFT */}
           <div className="space-y-6">
-            <h2 className="text-xl font-semibold">
-              Billing Details
-            </h2>
+            <h2 className="text-xl font-semibold">Billing Details</h2>
 
             <div className="space-y-5">
               {["name", "email", "phone", "address"].map((field) => (
@@ -215,20 +216,29 @@ function Checkout() {
 
           {/* RIGHT */}
           <div className="bg-neutral-900 rounded-3xl p-6 md:p-8 h-fit">
-            <h2 className="text-xl font-semibold mb-6">
-              Your Order
-            </h2>
+            <h2 className="text-xl font-semibold mb-6">Your Order</h2>
 
             <div className="space-y-4">
               {cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="flex justify-between text-sm border-b border-white/10 pb-3"
+                  className="flex items-center justify-between gap-4 border-b border-white/10 pb-4"
                 >
-                  <span>
-                    {item.name} × {item.quantity || 1}
-                  </span>
-                  <span>
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-14 h-14 rounded-lg object-contain bg-black"
+                    />
+                    <div className="text-sm">
+                      <p className="font-medium">{item.name}</p>
+                      <p className="text-white/50 text-xs">
+                        Qty: {item.quantity || 1}
+                      </p>
+                    </div>
+                  </div>
+
+                  <span className="text-sm">
                     Rs. {item.price * (item.quantity || 1)}
                   </span>
                 </div>

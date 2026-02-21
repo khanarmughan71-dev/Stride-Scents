@@ -11,7 +11,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
   }, [menuOpen]);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-black backdrop-blur-md text-white border-b border-neutral-800">
+    <nav className="sticky top-0 z-50 w-full bg-transparent text-white">
       <div className="max-w-8x1 mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
         {/* LEFT: Logo + Brand */}
         <div className="flex items-center gap-4">

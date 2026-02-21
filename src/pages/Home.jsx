@@ -9,7 +9,7 @@ function Home() {
       <section
         className="relative min-h-screen bg-black text-white flex items-center justify-center"
         style={{
-          backgroundImage: "url('/hero.jpg')",
+          backgroundImage: "url('/Hero.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

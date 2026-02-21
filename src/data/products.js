@@ -7,7 +7,7 @@ export const products = [
     banner: "/banners/stride-banner1.png",
     description: "Impression of Creed Aventus",
     originalPrice: 2300,
-    discountedPrice: 1950,
+    discountedPrice: 1840, // 20% off
   },
   {
     id: "legend",
@@ -17,7 +17,7 @@ export const products = [
     banner: "/banners/stride-banner2.png",
     description: "Impression of Hugo Boss Classic",
     originalPrice: 2100,
-    discountedPrice: 1800,
+    discountedPrice: 1680, // 20% off
   },
   {
     id: "attitude",
@@ -27,7 +27,7 @@ export const products = [
     banner: "/banners/stride-banner4.png",
     description: "Impression of Bleu de Chanel",
     originalPrice: 2000,
-    discountedPrice: 1700,
+    discountedPrice: 1600, // 20% off
   },
   {
     id: "gemini-7teen",
@@ -37,6 +37,6 @@ export const products = [
     banner: "/banners/stride-banner3.png",
     description: "Impression of Versace Bright Crystal",
     originalPrice: 1900,
-    discountedPrice: 1600,
+    discountedPrice: 1520, // 20% off
   },
 ];
